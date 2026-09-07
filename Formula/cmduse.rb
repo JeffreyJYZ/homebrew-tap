@@ -1,8 +1,8 @@
 class Cmduse < Formula
   desc "Live Command Code usage dashboard: plan, credits, windows, reports"
   homepage "https://github.com/JeffreyJYZ/command-code-zed"
-  url "https://static.crates.io/crates/cmd-usage/cmd-usage-0.1.14.crate"
-  sha256 "f9d928f1f1851ac754813b8da7a78de7265b753a234a8492e1ce459f6d25ed6e"
+  url "https://static.crates.io/crates/cmd-usage/cmd-usage-0.1.15.crate"
+  sha256 "b0cee115ab28d1d1285fc56361917e5a8b2a690e950954170a41cc2219bc074d"
   license "MIT"
 
   depends_on "rust" => :build
