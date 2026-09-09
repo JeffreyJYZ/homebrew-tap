@@ -1,14 +1,15 @@
 class Cmduse < Formula
   desc "Live Command Code usage dashboard: plan, credits, windows, reports"
   homepage "https://github.com/JeffreyJYZ/command-code-zed"
-  url "https://static.crates.io/crates/cmd-usage/cmd-usage-0.5.4.crate"
-  sha256 "4153057ba00d53b1685e7039d23fc458ab8fe539ad2d7ab49bc627d7f7cfc97f"
+  url "https://static.crates.io/crates/cmd-usage/cmd-usage-0.5.5.crate"
+  sha256 "a878c83df81e34db72e04bc3644ec0c288dfc1e092ca253937c8310f03847058"
   license "MIT"
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+    man1.install "cmduse.1"
   end
 
   test do
