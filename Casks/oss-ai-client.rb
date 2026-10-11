@@ -20,6 +20,18 @@ cask "oss-ai-client" do
 
   app "oss-ai-client.app"
 
+  # Homebrew quarantines what it downloads, Gatekeeper refuses a quarantined
+  # unsigned app, and Homebrew 7 has no --no-quarantine to ask for. These builds
+  # are unsigned on purpose, so the attribute is cleared here, or the app cannot
+  # be opened at all. This is the legacy `postflight` rather than the canonical
+  # `postflight_steps` on purpose: a steps block may contain only install-step
+  # DSL calls with literal arguments and has no `appdir`, so it cannot address
+  # the installed app. Verified by installing it: audit clean, attribute gone.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/oss-ai-client.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/land.jyz.aiclient",
     "~/Library/Caches/land.jyz.aiclient",
@@ -27,16 +39,9 @@ cask "oss-ai-client" do
     "~/Library/Saved Application State/land.jyz.aiclient.savedState",
   ]
 
-  # These builds are unsigned and not notarized, and Homebrew quarantines what it
-  # downloads, which is exactly what Gatekeeper refuses. The caveat is the install
-  # flag that leaves the attribute off.
   caveats <<~EOS
-    This build is unsigned and not notarized. If macOS refuses to open it, install
-    with the quarantine attribute left off:
-
-      brew install --cask --no-quarantine jeffreyjyz/tap/oss-ai-client
-
-    Or clear it afterwards:
+    This build is unsigned and not notarized. Its quarantine attribute is cleared
+    during install so the app can open; if macOS still refuses it, clear it by hand:
 
       xattr -dr com.apple.quarantine "#{appdir}/oss-ai-client.app"
   EOS

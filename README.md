@@ -13,10 +13,10 @@ brew trust jeffreyjyz/tap
 ### Open Source AI Client (desktop app)
 
 ```sh
-brew install --cask --no-quarantine jeffreyjyz/tap/oss-ai-client
+brew install --cask jeffreyjyz/tap/oss-ai-client
 ```
 
-These builds are unsigned and not notarized, which is what `--no-quarantine` is for. The app updates itself from then on, so Homebrew never needs to replace it. `brew uninstall --zap --cask oss-ai-client` also removes its conversations and settings.
+These builds are unsigned and not notarized, so the cask clears the quarantine attribute itself on install and nothing else is needed. The app updates itself from then on, so Homebrew never needs to replace it. `brew uninstall --zap --cask oss-ai-client` also removes its conversations and settings.
 
 ### cmduse (CLI)
 
