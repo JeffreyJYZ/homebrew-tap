@@ -23,13 +23,20 @@ cask "oss-ai-client" do
   # Homebrew quarantines what it downloads, Gatekeeper refuses a quarantined
   # unsigned app, and Homebrew 7 has no --no-quarantine to ask for. These builds
   # are unsigned on purpose, so the attribute is cleared here, or the app cannot
-  # be opened at all. This is the legacy `postflight` rather than the canonical
-  # `postflight_steps` on purpose: a steps block may contain only install-step
-  # DSL calls with literal arguments and has no `appdir`, so it cannot address
-  # the installed app. Verified by installing it: audit clean, attribute gone.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/oss-ai-client.app"]
+  # be opened at all. This is the `postflight_steps` form — the legacy `postflight`
+  # is deprecated and printed a warning on every brew invocation. A `run` step
+  # resolves its path against the cask's own `appdir` context value, so it does
+  # address the installed app, and `writable_paths` declares what the step's
+  # sandbox may touch. The failure is allowed on purpose: the `caveats` below tell
+  # a user how to clear the attribute by hand, so an attribute that will not clear
+  # must not fail the install.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "oss-ai-client.app"],
+        base: "appdir",
+        writable_paths: ["oss-ai-client.app"],
+        writable_base: "appdir",
+        must_succeed: false
   end
 
   zap trash: [
