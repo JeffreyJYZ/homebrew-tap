@@ -1,11 +1,16 @@
 name: Bump oss-ai-client cask
 
 # The desktop app ships its own updater, so this cask only has to point at the
-# newest release. Running here rather than in the app repo means no cross-repo
-# token: this workflow reads that repo's public releases and commits to its own.
+# newest release. It is driven two ways: the app repo dispatches
+# `client-release` the moment a release is published (that hop is cross-repo,
+# so it carries its own fine-grained token on their side), and the schedule
+# below is a **daily backstop** for when that dispatch does not arrive — a
+# token that expired, or a release cut by hand.
 on:
+  repository_dispatch:
+    types: [client-release]
   schedule:
-    - cron: "23 */6 * * *"
+    - cron: "23 4 * * *"
   workflow_dispatch:
 
 permissions:
