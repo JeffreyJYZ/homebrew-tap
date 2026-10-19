@@ -18,9 +18,6 @@ cask "oss-ai-client" do
   desc "Desktop client for OpenAI-compatible endpoints"
   homepage "https://github.com/JeffreyJYZ/ai-client-oss"
 
-  # The app updates itself from the signed manifest on the latest release, so
-  # Homebrew should not try to replace a build the updater has already moved past.
-  auto_updates true
   depends_on :macos
 
   app "oss-ai-client.app"
