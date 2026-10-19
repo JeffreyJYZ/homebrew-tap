@@ -1,6 +1,6 @@
 cask "oss-ai-client" do
-  version "0.5.0"
-  sha256 "6dfb715068cda46ac36b87ec3c064b0c4d0bc12effdf59a4e60b11ae91da52b3"
+  version "0.6.0"
+  sha256 "b56aea2880250f4b0ef745013a2d3752b6d8121a629e52a4f12d15e5660e7157"
 
   url "https://github.com/JeffreyJYZ/ai-client-oss/releases/download/desktop-v#{version}/oss-ai-client_#{version}_universal.dmg"
   name "Open Source AI Client"
