@@ -9,25 +9,25 @@ class Cmduse < Formula
   # builds because they run on any distro regardless of glibc version.
   on_macos do
     on_arm do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.15/cmduse-0.7.15-aarch64-apple-darwin.tar.gz"
-      sha256 "bad879bf7fd03eaed3f62a07769aaa07a43653990afa81d0e9e0d09631667489"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.16/cmduse-0.7.16-aarch64-apple-darwin.tar.gz"
+      sha256 "c4aa74b5cb973f8e594508afa2d7bd2ab2fcf225a66f5b8f434fe8b0119fd8f6"
     end
 
     on_intel do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.15/cmduse-0.7.15-x86_64-apple-darwin.tar.gz"
-      sha256 "18474480ee1d3f73da1e79b4c5f8881adb5229a679cf2102dd39017b6d859dbc"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.16/cmduse-0.7.16-x86_64-apple-darwin.tar.gz"
+      sha256 "a8ca1641594307e8bd2a2c1e123150aeaa0c5a71f561ce4677e0ac000b02e1d6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.15/cmduse-0.7.15-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "4cca553720e4dc7e19d6ccf73fa3b99f0e1ef6169190b1e03a57f2772e7ae265"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.16/cmduse-0.7.16-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "8ea802ad2f5268981341c5866d30cadd46122d0e3e88f6c6bc14eacba3d697ed"
     end
 
     on_intel do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.15/cmduse-0.7.15-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "ede61728421cb48308ec8c821de67f8f88430f8f0c72c2cabe6a2c412e9c42ba"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.16/cmduse-0.7.16-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "57f4c47d69ad0636f23f425de91e027b1636aaa5ecf6841386309d2ac2b26283"
     end
   end
 
