@@ -1,17 +1,22 @@
 cask "oss-ai-client" do
-  version "0.6.1"
-  sha256 "919d24e1fb2af3090a282dedaf93b01f046903d8d608d5924745a7ff91970ebc"
+  # The app updates itself, and a *pinned* version leaves Homebrew's receipt at
+  # the version that was installed — so `brew list` reports an old number
+  # forever after an in-app update, and `--greedy` re-downloads. `version
+  # :latest` makes the receipt read "latest" and resolves the newest release at
+  # install time, which is Homebrew's own answer for a self-updating app. It
+  # costs the checksum (`sha256 :no_check` is required with `:latest`); the
+  # download is the signed updater archive, and the app verifies its own
+  # updates from the signed manifest.
+  #
+  # The URL is the **unversioned** updater asset, so it never needs repinning:
+  # `.../releases/latest/download/oss-ai-client_universal.app.tar.gz`.
+  version :latest
+  sha256 :no_check
 
-  url "https://github.com/JeffreyJYZ/ai-client-oss/releases/download/desktop-v#{version}/oss-ai-client_#{version}_universal.dmg"
+  url "https://github.com/JeffreyJYZ/ai-client-oss/releases/latest/download/oss-ai-client_universal.app.tar.gz"
   name "Open Source AI Client"
   desc "Desktop client for OpenAI-compatible endpoints"
   homepage "https://github.com/JeffreyJYZ/ai-client-oss"
-
-  livecheck do
-    url "https://github.com/JeffreyJYZ/ai-client-oss"
-    regex(/desktop-v?(\d+(?:\.\d+)+)/i)
-    strategy :github_latest
-  end
 
   # The app updates itself from the signed manifest on the latest release, so
   # Homebrew should not try to replace a build the updater has already moved past.
