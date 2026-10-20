@@ -9,30 +9,30 @@ class Cmduse < Formula
   # builds because they run on any distro regardless of glibc version.
   on_macos do
     on_arm do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.22/cmduse-0.7.22-aarch64-apple-darwin.tar.gz"
-      sha256 "2f16700fde5aecd0101934bece8e463ad2c5fe7781d1d69a54cab2c1cba7e5f0"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.25/cmduse-0.7.25-aarch64-apple-darwin.tar.gz"
+      sha256 "0b3b89afc15e5b5310f9bea060a0af499f8cf06777c0929253a737bea1a43e1e"
     end
 
     on_intel do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.22/cmduse-0.7.22-x86_64-apple-darwin.tar.gz"
-      sha256 "a8dfddd20808cd74ab51a16235f3ffcf1e2e3c4584a2980bc61a023985451a98"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.25/cmduse-0.7.25-x86_64-apple-darwin.tar.gz"
+      sha256 "123fb072b81ab85561bd9d8d033c3ffeb765eb95769705ddf58caf091399708a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.22/cmduse-0.7.22-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "c915b9c43e37e72b522cc06d779ff286e648b27dbc8a88f9a146ac1eb69b833f"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.25/cmduse-0.7.25-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "3ae31c33e418c0674d978afb3987a67b122fb1340e641aea0120ac142822c40f"
     end
 
     on_intel do
-      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.22/cmduse-0.7.22-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "32fd3560f5625907acbf4cb74692f8f0df1f60ef23ebc0c4f936dde86b12031a"
+      url "https://github.com/JeffreyJYZ/cmdcode-tools/releases/download/cmduse-v0.7.25/cmduse-0.7.25-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "1e8541762a9f46418c6887cb66ff40fccb8e432363924388971e7bf74e97a393"
     end
   end
 
   def install
-    bin.install "cmduse", "ocuse", "arkuse", "cmdusedev", "arkusedev"
+    bin.install "cmduse", "ocuse", "arkuse", "cmdusedev", "ocusedev", "arkusedev"
     man1.install "cmduse.1"
   end
 
