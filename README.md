@@ -25,3 +25,13 @@ Live Command Code usage: plan, credits, 5-hour and weekly windows.
 ```sh
 brew install jeffreyjyz/tap/cmduse
 ```
+
+### quarry (desktop app)
+
+Rust and C/C++ IDE.
+
+```sh
+brew install --cask jeffreyjyz/tap/quarry
+```
+
+Also unsigned and not notarized: the cask clears the quarantine attribute on install, and the app updates itself from the signed release manifest, so Homebrew never needs to replace it. `brew uninstall --zap --cask quarry` removes its settings too.
