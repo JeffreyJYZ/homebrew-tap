@@ -1,8 +1,8 @@
 class Crust < Formula
   desc "Bun-native macOS desktop app framework: system WebView, no Rust, no Chromium"
   homepage "https://github.com/JeffreyJYZ/crust"
-  url "https://github.com/JeffreyJYZ/crust/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "9d3a19d2357055157e01660070d70939444dcafb6f59322a876f3b21c8aa32ba"
+  url "https://github.com/JeffreyJYZ/crust/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "65de2a6a32e496419d31b6e3a78dee9918f0b962b922b58addf50fbcddde050b"
   license "MIT"
 
   # Source, not a compiled artifact: crust is TypeScript that Bun runs, and its
@@ -36,7 +36,7 @@ class Crust < Formula
   end
 
   test do
-    assert_match "0.1.4", shell_output("#{bin}/crust --version")
+    assert_match "0.1.5", shell_output("#{bin}/crust --version")
     assert_match "crust init", shell_output("#{bin}/crust --help")
     # init reads the shipped templates through the package root, so this is the
     # check that the install layout is complete rather than merely present.
