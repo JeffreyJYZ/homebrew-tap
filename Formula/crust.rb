@@ -13,10 +13,10 @@ class Crust < Formula
   depends_on macos: :ventura # WKWebView APIs crust uses, and the apps it builds target 13.0
 
   def install
-    # The repo root is the package root: crust resolves templates/, docs/ and the
-    # .c shim relative to its own source, so the layout has to stay intact.
-    # research/ is recon and examples/ is scratch, so neither travels.
-    libexec.install "src", "templates", "docs", "package.json", "tsconfig.json", "README.md", "DESIGN.md"
+    # The repo root is the package root: crust resolves templates/ and the .c shim
+    # relative to its own source, so the layout has to stay intact. research/,
+    # examples/ and site/ are repo furniture, not part of an install.
+    libexec.install "src", "templates", "package.json", "tsconfig.json", "README.md"
     (bin/"crust").write <<~SH
       #!/bin/bash
       exec "#{Formula["bun"].opt_bin}/bun" "#{libexec}/src/cli/index.ts" "$@"
